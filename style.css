@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.upload-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+.upload-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px dashed #ccc;
+    transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.upload-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+    font-weight: 600;
+}
+
+.file-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.file-name {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.action-section {
+    padding: 0 40px 40px;
+    text-align: center;
+}
+
+.verify-btn {
+    padding: 20px 60px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(17, 153, 142, 0.3);
+}
+
+.verify-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(17, 153, 142, 0.4);
+}
+
+.verify-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.preview-section {
+    padding: 40px;
+    background: #f8f9fa;
+    border-top: 2px solid #e0e0e0;
+}
+
+.preview-section h3 {
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+#imageCanvas {
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.progress-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+#progressText {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.results-section {
+    padding: 40px;
+    background: #f8f9fa;
+}
+
+.result-card {
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.result-card.authentic {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.result-card.modified {
+    background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);
+    color: #333;
+}
+
+.result-card.forged {
+    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+    color: white;
+}
+
+.strands-comparison {
+    margin-bottom: 30px;
+}
+
+.strands-comparison h3 {
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+.strand-detail {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #ccc;
+}
+
+.strand-detail.match {
+    border-left-color: #38ef7d;
+}
+
+.strand-detail.mismatch {
+    border-left-color: #f45c43;
+}
+
+.strand-detail h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.strand-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.visual-comparison {
+    margin-top: 30px;
+}
+
+.visual-comparison h3 {
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+#strandCanvas {
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    background: white;
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .upload-section {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+}

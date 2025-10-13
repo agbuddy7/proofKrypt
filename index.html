@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Provenance Verification System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Image Provenance Verification</h1>
+            <p>Verify image authenticity using pixel strand fingerprinting</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-card">
+                <h2>Step 1: Upload Image</h2>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <label for="imageInput" class="file-label">
+                        <span>📷 Choose Image</span>
+                    </label>
+                    <span id="imageFileName" class="file-name"></span>
+                </div>
+            </div>
+
+            <div class="upload-card">
+                <h2>Step 2: Upload Pixel Strand File</h2>
+                <div class="file-input-wrapper">
+                    <input type="file" id="pixelDataInput" accept=".txt">
+                    <label for="pixelDataInput" class="file-label">
+                        <span>📄 Choose Pixel Data File</span>
+                    </label>
+                    <span id="pixelFileName" class="file-name"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <button id="verifyBtn" class="verify-btn" disabled>
+                🔐 Verify Image Authenticity
+            </button>
+        </div>
+
+        <div id="previewSection" class="preview-section" style="display: none;">
+            <h3>Image Preview</h3>
+            <canvas id="imageCanvas"></canvas>
+            <div id="imageInfo" class="image-info"></div>
+        </div>
+
+        <div id="progressSection" class="progress-section" style="display: none;">
+            <div class="progress-bar">
+                <div id="progressBar" class="progress-fill"></div>
+            </div>
+            <p id="progressText">Processing...</p>
+        </div>
+
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <div id="verificationResult" class="result-card"></div>
+            
+            <div class="strands-comparison">
+                <h3>Strand-by-Strand Comparison</h3>
+                <div id="strandsDetails"></div>
+            </div>
+
+            <div class="visual-comparison">
+                <h3>Visual Strand Locations</h3>
+                <canvas id="strandCanvas"></canvas>
+            </div>
+        </div>
+
+        <footer>
+            <p>Image Provenance Verification System v1.0 | Captured by: agbuddy7</p>
+            <p>Current UTC Time: <span id="currentTime"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
